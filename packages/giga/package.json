@@ -1,0 +1,37 @@
+{
+	"name": "giga",
+	"version": "1.0.0",
+	"description": "official giga compiler",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.js"
+		},
+		"./client": {
+			"types": "./client.d.ts"
+		}
+	},
+	"scripts": {
+		"build": "tsup ./src/index.ts --dts --format=esm,cjs",
+		"test": "jest"
+	},
+	"keywords": [],
+	"author": "Wes Lowe <wesley.lowe@yahoo.com>",
+	"license": "MIT",
+	"dependencies": {
+		"@babel/core": "^7.24.6",
+		"@babel/generator": "^7.24.6"
+	},
+	"devDependencies": {
+		"@types/babel__core": "^7.20.5",
+		"@types/babel__generator": "^7.6.8",
+		"@types/jest": "^29.5.12",
+		"@types/node": "^20.12.13",
+		"jest": "^29.7.0",
+		"ts-jest": "^29.1.2",
+		"tsup": "^8.0.2",
+		"tsx": "^4.7.1",
+		"typescript": "^5.4.3"
+	}
+}

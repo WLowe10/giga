@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"allowSyntheticDefaultImports": true,
+		"module": "CommonJS",
+		"lib": ["es2015", "es2017", "dom"],
+		"esModuleInterop": true
+	}
+}
