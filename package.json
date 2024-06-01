@@ -1,5 +1,18 @@
 {
-	"name": "giga-monorepo",
-	"description": "Official Giga language",
-	"author": "Wes Lowe <wesley.lowe@yahoo.com>"
+	"name": "giga",
+	"description": "Simple React transpiler. Adds svelte-like reactivity",
+	"license": "MIT",
+	"keywords": [
+		"react",
+		"babel",
+		"vite"
+	],
+	"author": {
+		"name": "Wes Lowe",
+		"email": "wesley.lowe@yahoo.com"
+	},
+	"devDependencies": {
+		"prettier": "^3.2.5",
+		"typescript": "^5.4.5"
+	}
 }
