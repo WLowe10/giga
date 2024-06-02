@@ -10,7 +10,7 @@ import { transformStates } from "./transform-states";
 
 export default function babelPlugin(): babel.PluginObj {
 	return {
-		name: "babel-plugin-giga",
+		name: "giga",
 		visitor: {
 			Program(programPath) {
 				const { reactDefaultImportName } = addReactImport(programPath);

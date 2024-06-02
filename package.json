@@ -11,7 +11,7 @@
 		"email": "wesley.lowe@yahoo.com"
 	},
 	"scripts": {
-		"publish-packages": "turbo run build && changeset version && changeset publish",
+		"publish-packages": "pnpm build && changeset version && pnpm publish -r",
 		"build": "pnpm --filter './packages/**' build",
 		"build-watch": "pnpm --filter './packages/**' build-watch",
 		"clean:dist": "pnpm --filter './packages/**' clean:dist"

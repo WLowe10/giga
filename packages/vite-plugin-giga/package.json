@@ -4,8 +4,8 @@
 	"description": "Vite plugin for Giga",
 	"license": "MIT",
 	"repository": {
-		"url": "https://github.com/WLowe10/giga.git",
 		"type": "git",
+		"url": "https://github.com/WLowe10/giga.git",
 		"directory": "packages/plugin-vite"
 	},
 	"type": "module",
@@ -43,7 +43,7 @@
 	},
 	"dependencies": {
 		"@babel/core": "^7.24.6",
-		"giga": "workspace:*"
+		"babel-plugin-giga": "workspace:*"
 	},
 	"peerDependencies": {
 		"vite": "^4.2.0 || ^5.0.0"

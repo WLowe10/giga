@@ -1,5 +1,5 @@
 import * as babel from "@babel/core";
-import gigaPlugin from "giga";
+import gigaPlugin from "babel-plugin-giga";
 import { createFilter, type Plugin } from "vite";
 
 const defaultIncludeRegex = /\.[tj]sx?$/;
