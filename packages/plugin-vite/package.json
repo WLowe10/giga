@@ -1,11 +1,12 @@
 {
-	"name": "giga",
+	"name": "@giga/plugin-vite",
 	"version": "0.1.0",
-	"description": "official giga transpiler",
+	"description": "Vite plugin for Giga",
+	"license": "MIT",
 	"repository": {
 		"url": "https://github.com/WLowe10/giga",
 		"type": "git",
-		"directory": "packages/giga"
+		"directory": "packages/plugin-vite"
 	},
 	"type": "module",
 	"main": "./dist/index.cjs",
@@ -21,9 +22,6 @@
 				"types": "./dist/index.d.cts",
 				"default": "./dist/index.cjs"
 			}
-		},
-		"./client": {
-			"types": "./"
 		}
 	},
 	"files": [
@@ -33,16 +31,15 @@
 	"scripts": {
 		"build": "tsup ./src/index.ts --dts --format=esm,cjs"
 	},
-	"keywords": [],
-	"author": "Wes Lowe <wesley.lowe@yahoo.com>",
-	"license": "MIT",
 	"dependencies": {
-		"@babel/core": "^7.24.6"
+		"@babel/core": "^7.24.6",
+		"giga": "workspace:*"
+	},
+	"peerDependencies": {
+		"vite": "^4.2.0 || ^5.0.0"
 	},
 	"devDependencies": {
 		"@types/babel__core": "^7.20.5",
-		"@types/node": "^20.12.13",
-		"tsup": "^8.0.2",
-		"typescript": "^5.4.3"
+		"tsup": "^8.0.2"
 	}
 }

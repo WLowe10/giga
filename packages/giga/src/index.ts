@@ -1,6 +1,5 @@
 import { addReactImport } from "./add-react-import";
 import { transformStates } from "./transform-states";
-import { transformEffects } from "./transform-effects";
 
 // todo start using babel t utility as used below, adds nice utility like t.isIdentifier
 // https://github.com/kentcdodds/babel-plugin-handbook?tab=readme-ov-file#introduction
@@ -34,10 +33,6 @@ export default function babelPlugin(): babel.PluginObj {
 
 				functionBodies.forEach((bodyPath) => {
 					transformStates(bodyPath, {
-						reactDefaultImportName,
-					});
-
-					transformEffects(bodyPath, {
 						reactDefaultImportName,
 					});
 				});

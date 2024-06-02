@@ -2,16 +2,16 @@
 	"name": "giga",
 	"description": "Simple React transpiler. Adds svelte-like reactivity",
 	"license": "MIT",
-	"keywords": [
-		"react",
-		"babel",
-		"vite"
-	],
 	"author": {
 		"name": "Wes Lowe",
 		"email": "wesley.lowe@yahoo.com"
 	},
+	"scripts": {
+		"publish-packages": "turbo run build && changeset version && changeset publish",
+		"build:dev": "pnpm --filter './packages/**' build --watch"
+	},
 	"devDependencies": {
+		"@changesets/cli": "^2.27.5",
 		"prettier": "^3.2.5",
 		"typescript": "^5.4.5"
 	}
