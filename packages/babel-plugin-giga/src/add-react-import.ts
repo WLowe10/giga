@@ -35,6 +35,7 @@ export function addReactImport(
 				},
 			});
 		} else if (defaultSpecifier.local.name !== "React") {
+			// if React is already imported with default, we will store the identifier name for later use
 			reactDefaultImportName = defaultSpecifier.local.name;
 		}
 	} else {
