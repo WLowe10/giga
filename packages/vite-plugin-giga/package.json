@@ -1,6 +1,6 @@
 {
 	"name": "vite-plugin-giga",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Use Giga with Vite",
 	"license": "MIT",
 	"repository": {
@@ -29,7 +29,8 @@
 	},
 	"files": [
 		"dist",
-		"src"
+		"src",
+		"client.d.ts"
 	],
 	"keywords": [
 		"react",
