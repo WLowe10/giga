@@ -1,7 +1,7 @@
 {
 	"name": "babel-plugin-giga",
 	"version": "0.1.0",
-	"description": "Giga transpiler",
+	"description": "Adds zero cost utilities to React",
 	"author": {
 		"name": "Wes Lowe",
 		"email": "wesley.lowe@yahoo.com"
@@ -44,6 +44,7 @@
 	"scripts": {
 		"build": "tsup ./src/index.ts --dts --format=esm,cjs",
 		"build-watch": "pnpm build --watch",
+		"type-check": "tsc --noEmit",
 		"clean:dist": "rm -rf ./dist"
 	},
 	"dependencies": {

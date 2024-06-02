@@ -14,6 +14,7 @@
 		"publish-packages": "pnpm build && changeset version && pnpm publish -r",
 		"build": "pnpm --filter './packages/**' build",
 		"build-watch": "pnpm --filter './packages/**' build-watch",
+		"type-check": "pnpm --filter './packages/**' type-check",
 		"clean:dist": "pnpm --filter './packages/**' clean:dist"
 	},
 	"devDependencies": {

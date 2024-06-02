@@ -1,7 +1,7 @@
 {
 	"name": "vite-plugin-giga",
 	"version": "0.1.0",
-	"description": "Vite plugin for Giga",
+	"description": "Use Giga with Vite",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -39,6 +39,7 @@
 	"scripts": {
 		"build": "tsup ./src/index.ts --dts --format=esm,cjs",
 		"build-watch": "pnpm build --watch",
+		"type-check": "tsc --noEmit",
 		"clean:dist": "rm -rf ./dist"
 	},
 	"dependencies": {

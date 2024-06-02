@@ -1,5 +1,5 @@
 import * as babel from "@babel/core";
-import gigaPlugin from "babel-plugin-giga";
+import giga from "babel-plugin-giga";
 import { createFilter, type Plugin } from "vite";
 
 const defaultIncludeRegex = /\.[tj]sx?$/;
@@ -67,7 +67,7 @@ export default function vitePlugin(opts?: PluginOptions): Plugin {
 			const result = await babel.transformAsync(src, {
 				sourceMaps: true,
 				sourceFileName: id,
-				plugins: [gigaPlugin],
+				plugins: [giga],
 				parserOpts: {
 					plugins: parserPlugins as any,
 				},
