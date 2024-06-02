@@ -1,9 +1,11 @@
 {
+	"include": ["src"],
 	"compilerOptions": {
+		"target": "es2016",
+		"module": "commonjs",
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
 		"strict": true,
-		"allowSyntheticDefaultImports": true,
-		"module": "CommonJS",
-		"lib": ["es2015", "es2017", "dom"],
-		"esModuleInterop": true
+		"skipLibCheck": true
 	}
 }
