@@ -33,7 +33,7 @@ Now, add the global types for type-safety when working with the Giga transpiler
 
 ## Features
 
-### Giga reactivity (Inspired by Svelte)
+### Giga state (Inspired by Svelte)
 
 ```tsx
 // counter-button.tsx
@@ -63,3 +63,4 @@ export const CounterButton = () => {
 ## Planned features
 
 -   Automatic dependency array population when using React hooks such as useEffect, useCallback, or useMemo.
+-   Single File Components (SFC)

@@ -1,6 +1,6 @@
 const buildSetStateIdentifierName = (stateName: string) => `$$set_${stateName}`;
 
-// const [counter, set_counter] = React.useState(0);
+// const [counter, $$set_counter] = React.useState(0);
 const buildStateVariableDeclaration = (
 	stateName: string,
 	init: babel.types.CallExpression["arguments"][0],
@@ -44,7 +44,7 @@ const buildStateVariableDeclaration = (
 	],
 });
 
-// set_counter(x)
+// $$set_counter(x)
 const buildSetStateCallExpression = (
 	stateName: string,
 	args: babel.types.CallExpression["arguments"]
@@ -57,7 +57,7 @@ const buildSetStateCallExpression = (
 	arguments: args,
 });
 
-// set_counter(counter => x)
+// $$set_counter(counter => x)
 const buildSetStateCallExpressionWithPrev = (
 	stateName: string,
 	body: babel.types.ArrowFunctionExpression["body"]
@@ -108,40 +108,37 @@ export function transformStates(
 	// gather all state variable declarations
 	path.traverse({
 		VariableDeclaration(path) {
-			const firstDeclarator = path.node.declarations[0];
+			const declaratorWithInit = path.node.declarations[path.node.declarations.length - 1];
 
-			if (firstDeclarator.id.type === "Identifier") {
-				if (firstDeclarator.init && firstDeclarator.init.type === "CallExpression") {
-					const callee = firstDeclarator.init.callee;
+			if (declaratorWithInit.id.type === "Identifier") {
+				if (declaratorWithInit.init && declaratorWithInit.init.type === "CallExpression") {
+					const callee = declaratorWithInit.init.callee;
 
 					if (
 						callee.type === "MemberExpression" &&
 						callee.object.type === "Identifier" &&
 						callee.object.name === "giga" &&
 						callee.property.type === "Identifier" &&
-						callee.property.name === "useState" &&
-						firstDeclarator.init.arguments.length === 1
+						callee.property.name === "useState"
 					) {
 						if (path.node.kind !== "let") {
 							throw new Error("giga.useState must be declared with let");
 						}
 
-						// ! not working, important to fix to prevent misuse
-						if (firstDeclarator.init.arguments.length > 1) {
-							throw new Error("giga.useState only accepts one argument");
-						}
-
-						// ! not working, important to fix to prevent misuse
 						if (path.node.declarations.length > 1) {
 							throw new Error(
 								"Only one state declarator is allowed per invocation of giga.useState"
 							);
 						}
 
+						if (declaratorWithInit.init.arguments.length > 1) {
+							throw new Error("giga.useState only accepts one argument");
+						}
+
 						stateDeclarations.push({
 							path,
-							stateName: firstDeclarator.id.name,
-							init: firstDeclarator.init.arguments[0],
+							stateName: declaratorWithInit.id.name,
+							init: declaratorWithInit.init.arguments[0],
 						});
 					}
 				}
