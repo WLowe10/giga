@@ -1,10 +1,10 @@
 {
-	"name": "@giga/plugin-vite",
+	"name": "vite-plugin-giga",
 	"version": "0.1.0",
 	"description": "Vite plugin for Giga",
 	"license": "MIT",
 	"repository": {
-		"url": "https://github.com/WLowe10/giga",
+		"url": "https://github.com/WLowe10/giga.git",
 		"type": "git",
 		"directory": "packages/plugin-vite"
 	},
@@ -22,14 +22,24 @@
 				"types": "./dist/index.d.cts",
 				"default": "./dist/index.cjs"
 			}
+		},
+		"./client": {
+			"types": "./client.d.ts"
 		}
 	},
 	"files": [
 		"dist",
 		"src"
 	],
+	"keywords": [
+		"react",
+		"babel",
+		"typescript"
+	],
 	"scripts": {
-		"build": "tsup ./src/index.ts --dts --format=esm,cjs"
+		"build": "tsup ./src/index.ts --dts --format=esm,cjs",
+		"build-watch": "pnpm build --watch",
+		"clean:dist": "rm -rf ./dist"
 	},
 	"dependencies": {
 		"@babel/core": "^7.24.6",

@@ -1,13 +1,19 @@
 {
 	"name": "giga",
 	"version": "0.1.0",
-	"description": "official giga transpiler",
+	"description": "Giga transpiler",
+	"author": {
+		"name": "Wes Lowe",
+		"email": "wesley.lowe@yahoo.com"
+	},
+	"license": "MIT",
 	"repository": {
-		"url": "https://github.com/WLowe10/giga",
 		"type": "git",
+		"url": "https://github.com/WLowe10/giga.git",
 		"directory": "packages/giga"
 	},
 	"type": "module",
+	"sideEffects": false,
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
@@ -23,19 +29,23 @@
 			}
 		},
 		"./client": {
-			"types": "./"
+			"types": "./client.d.ts"
 		}
 	},
 	"files": [
 		"dist",
 		"src"
 	],
+	"keywords": [
+		"react",
+		"babel",
+		"typescript"
+	],
 	"scripts": {
-		"build": "tsup ./src/index.ts --dts --format=esm,cjs"
+		"build": "tsup ./src/index.ts --dts --format=esm,cjs",
+		"build-watch": "pnpm build --watch",
+		"clean:dist": "rm -rf ./dist"
 	},
-	"keywords": [],
-	"author": "Wes Lowe <wesley.lowe@yahoo.com>",
-	"license": "MIT",
 	"dependencies": {
 		"@babel/core": "^7.24.6"
 	},

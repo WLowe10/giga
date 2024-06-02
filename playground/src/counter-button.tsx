@@ -5,7 +5,7 @@ export const CounterButton = () => {
 	let counter = giga.useState(0); // -> const [counter, $$set_counter] = React.useState(0);
 
 	const onClick = () => {
-		counter = counter + counter + counter + counter + counter || 1; // -> $$set_counter((counter) => counter + 1)
+		counter++; // -> $$set_counter((counter) => counter + 1)
 	};
 
 	/* Giga also understands when it makes sense to pass in an updater function to the setState fn

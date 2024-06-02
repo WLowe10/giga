@@ -58,15 +58,15 @@ importers:
 
   playground:
     dependencies:
-      '@giga/plugin-vite':
-        specifier: workspace:*
-        version: link:../packages/plugin-vite
       react:
         specifier: ^18.2.0
         version: 18.3.1
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
+      vite-plugin-giga:
+        specifier: workspace:*
+        version: link:../packages/plugin-vite
     devDependencies:
       '@types/react':
         specifier: ^18.2.66

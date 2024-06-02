@@ -1,6 +1,10 @@
 {
 	"name": "giga",
-	"description": "Simple React transpiler. Adds svelte-like reactivity",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/WLowe10/giga.git"
+	},
 	"license": "MIT",
 	"author": {
 		"name": "Wes Lowe",
@@ -8,7 +12,9 @@
 	},
 	"scripts": {
 		"publish-packages": "turbo run build && changeset version && changeset publish",
-		"build:dev": "pnpm --filter './packages/**' build --watch"
+		"build": "pnpm --filter './packages/**' build",
+		"build-watch": "pnpm --filter './packages/**' build-watch",
+		"clean:dist": "pnpm --filter './packages/**' clean:dist"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.5",
