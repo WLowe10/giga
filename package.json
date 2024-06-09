@@ -12,10 +12,10 @@
 	},
 	"scripts": {
 		"publish-packages": "pnpm build && pnpm publish -r",
-		"build": "pnpm --filter './packages/**' build",
-		"build-watch": "pnpm --filter './packages/**' build-watch",
-		"type-check": "pnpm --filter './packages/**' type-check",
-		"clean:dist": "pnpm --filter './packages/**' clean:dist"
+		"build": "pnpm --parallel --filter './packages/**' build",
+		"build-watch": "pnpm --parallel --filter './packages/**' build-watch",
+		"type-check": "pnpm --parallel --filter './packages/**' type-check",
+		"clean:dist": "pnpm --parallel --filter './packages/**' clean:dist"
 	},
 	"devDependencies": {
 		"prettier": "^3.2.5",

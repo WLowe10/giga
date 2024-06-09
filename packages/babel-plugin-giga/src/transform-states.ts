@@ -233,7 +233,7 @@ export function transformStates(
 						newNode = buildSetStateCallExpressionWithPrev(stateName, path.node.right);
 					} else {
 						// a state variable isn't used in this update, no need to use the useState update fn
-						newNode = buildSetStateCallExpression(stateName, [path.node]);
+						newNode = buildSetStateCallExpression(stateName, [path.node.right]);
 					}
 				}
 			}

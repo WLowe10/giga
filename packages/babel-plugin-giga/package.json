@@ -1,6 +1,6 @@
 {
 	"name": "babel-plugin-giga",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Adds zero cost utilities to React",
 	"author": {
 		"name": "Wes Lowe",

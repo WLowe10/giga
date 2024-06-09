@@ -67,7 +67,7 @@ export default function vitePlugin(opts?: PluginOptions): Plugin {
 			const result = await babel.transformAsync(src, {
 				sourceMaps: true,
 				sourceFileName: id,
-				plugins: [giga],
+				plugins: [giga()],
 				parserOpts: {
 					plugins: parserPlugins as any,
 				},

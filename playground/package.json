@@ -9,16 +9,20 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@babel/standalone": "^7.24.7",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"vite-plugin-giga": "workspace:*"
+		"react-live": "^4.1.6",
+		"babel-plugin-giga": "workspace:*"
 	},
 	"devDependencies": {
+		"@types/babel__standalone": "^7.1.7",
 		"@types/react": "^18.2.66",
 		"@types/react-dom": "^18.2.22",
 		"@typescript-eslint/eslint-plugin": "^7.11.0",
 		"@typescript-eslint/parser": "^7.11.0",
 		"@vitejs/plugin-react": "^4.2.1",
+		"vite-plugin-giga": "workspace:*",
 		"eslint": "^8.57.0",
 		"eslint-plugin-react-hooks": "^4.6.2",
 		"eslint-plugin-react-refresh": "^0.4.7",

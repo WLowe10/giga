@@ -1,42 +1,46 @@
 import { addReactImport } from "./add-react-import";
 import { transformStates } from "./transform-states";
 
-// todo start using babel t utility as used below, adds nice utility like t.isIdentifier
+export type PluginOptions = Partial<{
+	disableReactImport: boolean;
+}>;
+
 // https://github.com/kentcdodds/babel-plugin-handbook?tab=readme-ov-file#introduction
-// the article also has scoping examples
+export default function babelPlugin(opts?: PluginOptions) {
+	return (): babel.PluginObj => {
+		return {
+			name: "giga",
+			visitor: {
+				Program(programPath) {
+					let reactDefaultImportName = "React";
 
-// keep in mind path.isReferencedIdentifier
-// babel uid
+					if (!opts?.disableReactImport) {
+						reactDefaultImportName = addReactImport(programPath).reactDefaultImportName;
+					}
 
-export default function babelPlugin(): babel.PluginObj {
-	return {
-		name: "giga",
-		visitor: {
-			Program(programPath) {
-				const { reactDefaultImportName } = addReactImport(programPath);
+					const functionBodies: babel.NodePath<
+						babel.types.BlockStatement | babel.types.Expression
+					>[] = [];
 
-				const functionBodies: babel.NodePath<
-					babel.types.BlockStatement | babel.types.Expression
-				>[] = [];
-
-				programPath.traverse({
-					FunctionDeclaration(path) {
-						functionBodies.push(path.get("body"));
-					},
-					FunctionExpression(path) {
-						functionBodies.push(path.get("body"));
-					},
-					ArrowFunctionExpression(path) {
-						functionBodies.push(path.get("body"));
-					},
-				});
-
-				functionBodies.forEach((bodyPath) => {
-					transformStates(bodyPath, {
-						reactDefaultImportName,
+					programPath.traverse({
+						FunctionDeclaration(path) {
+							functionBodies.push(path.get("body"));
+						},
+						FunctionExpression(path) {
+							functionBodies.push(path.get("body"));
+						},
+						ArrowFunctionExpression(path) {
+							functionBodies.push(path.get("body"));
+						},
 					});
-				});
+
+					functionBodies.forEach((bodyPath) => {
+						transformStates(bodyPath, {
+							reactDefaultImportName,
+						});
+					});
+				},
 			},
-		},
+		};
 	};
 }
